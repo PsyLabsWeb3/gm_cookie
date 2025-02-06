@@ -23,13 +23,40 @@ export async function getOnChainActions(wallet: WalletClientBase) {
             validate: async () => true,
             examples: [],
         },
+        {
+            name: "SEND_ETH",
+            description: "Transfer ETH tokens to another wallet using sendETH plugin",
+            similes: [],
+            validate: async () => true,
+            examples: [],
+        },
+        {
+            name: "SEND_MZCAL",
+            description: "Transfer MZCAL tokens to another wallet using erc20 plugin",
+            similes: [],
+            validate: async () => true,
+            examples: [],
+        }
         // 1. Add your actions here
     ];
 
     const tools = await getOnChainTools({
         wallet: wallet,
         // 2. Configure the plugins you need to perform those actions
-        plugins: [sendETH(), erc20({ tokens: [USDC, MODE] }), kim()],
+        plugins: [sendETH(), erc20({ tokens: [
+            USDC,
+            MODE,
+            {
+                decimals: 18,
+                symbol: "MZCAL",
+                name: "MZCAL",
+                chains: {
+                    "919": {
+                        contractAddress: "0x09d98CA2Af67f6a8CFAde18525702cD266ad7597",
+                    },
+                },
+            }
+        ] }), kim()],
     });
 
     // 3. Let GOAT handle all the actions
