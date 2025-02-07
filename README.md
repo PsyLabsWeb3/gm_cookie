@@ -14,6 +14,10 @@
 **Problem Addressed:**  
 
 Traditional SocialFi campaigns often lack transparent and automated reward mechanisms, making it challenging to incentivize genuine community engagement in Web3.
+
+**Video demo** 
+https://www.youtube.com/watch?v=H_v_s7qwg8Q
+
 ---
 ## **Our Solution:**
 ### 🤖 **The Kukulcan Agent: Core Features**   
@@ -138,6 +142,13 @@ Users can view active campaigns, check their eligibility, and claim rewards in j
 **Interactive Queries:**  
 The agent provides real-time status updates—informing users if they’re part of the top engagement group.
 
+---
+
+### 🚀 **What We Built During the Hackathon** 
+
+- ✅ **Kukulcan AI Agent**
+- ✅ **Kukulcan Cookie Plugin (Eliza)**
+- ✅ **Customized Kukulcán UI**
 ---
 
 ## 🛠️ Implementation Guide
