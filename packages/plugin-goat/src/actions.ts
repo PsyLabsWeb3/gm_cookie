@@ -46,7 +46,14 @@ export async function getOnChainActions(wallet: WalletClientBase) {
             validate: async () => true,
             examples: [],
         },
-        
+        // claim rewards
+        {
+            name: "CLAIM_REWARDS",
+            description: "Transfer 1000000000000000000 MZCAL token (contract address:0x09d98CA2Af67f6a8CFAde18525702cD266ad7597) to user's wallet using erc20 plugin",
+            similes: [],
+            validate: async () => true,
+            examples: [],
+        },
     ];
 
     const tools = await getOnChainTools({

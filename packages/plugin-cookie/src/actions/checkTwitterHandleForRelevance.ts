@@ -67,7 +67,7 @@ export const checkTwitterHandleForRelevanceAction: Action = {
                 let callbackText;
 
                 if(foundMatch) {
-                    callbackText = `Congratulations! Your twitter handle ${userHandle} is amongst the most active users in this season.\nYou'll be receiving a reward in our Guerrero Maya ecosystem due to your participation. Rewards will be distributed at the end of the season.`;
+                    callbackText = `Congratulations! Your twitter handle ${userHandle} is amongst the most active users in this season.\nYou'll be receiving a reward in our Guerrero Maya ecosystem due to your participation. Please send me your wallet address to claim your rewards.`;
                 } else {
                     callbackText = `Sorry, as of this moment your twitter handle ${userHandle} is not part of the most active users in the Guerrero Maya ecosystem. Stay updated and follow our official accounts as we distribute rewards each season.`;
                 }
