@@ -30,14 +30,23 @@ export async function getOnChainActions(wallet: WalletClientBase) {
             validate: async () => true,
             examples: [],
         },
+        // transfer USDC
         {
-            name: "SEND_MZCAL",
-            description: "Transfer MZCAL tokens to another wallet using erc20 plugin",
+            name: "SEND_USDC",
+            description: "Transfer USDC tokens to another wallet using erc20 plugin",
             similes: [],
             validate: async () => true,
             examples: [],
-        }
-        // 1. Add your actions here
+        },
+        // transfer MZCAL
+        {
+            name: "SEND_MZCAL",
+            description: "Transfer MZCAL tokens (contract address:0x09d98CA2Af67f6a8CFAde18525702cD266ad7597) to another wallet using erc20 plugin",
+            similes: [],
+            validate: async () => true,
+            examples: [],
+        },
+        
     ];
 
     const tools = await getOnChainTools({
@@ -46,16 +55,17 @@ export async function getOnChainActions(wallet: WalletClientBase) {
         plugins: [sendETH(), erc20({ tokens: [
             USDC,
             MODE,
+            // add MZCAL token
             {
                 decimals: 18,
                 symbol: "MZCAL",
-                name: "MZCAL",
+                name: "Mzcal",
                 chains: {
-                    "919": {
+                    "1": {
                         contractAddress: "0x09d98CA2Af67f6a8CFAde18525702cD266ad7597",
                     },
                 },
-            }
+            },
         ] }), kim()],
     });
 
