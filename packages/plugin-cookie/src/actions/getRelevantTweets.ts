@@ -45,10 +45,14 @@ export const getRelevantTweetsAction: Action = {
                 `Successfully fetched relevant tweets.`
             );
             if(callback) {
-                const topUsersList = relevantTweetsData.ok
-                    .slice(0, 10)
-                    .map(tweet => `User: ${tweet.authorUsername}, engagementsCount: ${tweet.engagementsCount}`)
-                    .join("\n");
+                const topUsers = relevantTweetsData.ok.slice(0, 10);
+                const totalEngagementsCount = topUsers.reduce((sum, tweet) => sum + BigInt(tweet.engagementsCount), BigInt(0));
+                const rewardsPool = BigInt(config.GUERRERO_MAYA_REWARD_POOL);
+
+                const topUsersList = topUsers.map(tweet => {
+                    const reward = (rewardsPool * BigInt(tweet.engagementsCount)) / totalEngagementsCount;
+                    return `User: ${tweet.authorUsername}, engagementsCount: ${tweet.engagementsCount}, Guerrero Maya community reward: ${reward.toString()}`;
+                }).join("\n");
 
                 callback({
                     text: `Here is a relevant tweet from user ${relevantTweetsData.ok[0].authorUsername}:\n\n${relevantTweetsData.ok[0].text}\n\nHere are the top users who posted sorted by Cookie Swarm API's engagements count:\n\n${topUsersList}\n\nUsers on the list will receive rewards in our Guerrero Maya ecosystem based on their score. If you can't see your handle on the list, stay updated and follow our official accounts as we distribute rewards each season.`

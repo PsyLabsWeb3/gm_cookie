@@ -59,22 +59,38 @@ export const checkTwitterHandleForRelevanceAction: Action = {
                 stop: ["\n"],
             });
 
-            const foundMatch = relevantTweetsData.ok
-                .slice(0, 10)
-                .some(tweet => userHandle.includes(tweet.authorUsername));
+            const topUsers = relevantTweetsData.ok.slice(0, 10);
+            const totalEngagementsCount = topUsers.reduce((sum, tweet) => sum + BigInt(tweet.engagementsCount), BigInt(0));
+            const rewardsPool = BigInt(config.GUERRERO_MAYA_REWARD_POOL);
+
+            const foundMatch = topUsers.find(tweet => userHandle.includes(tweet.authorUsername));
+            const userRewards = foundMatch
+                ? (rewardsPool * BigInt(foundMatch.engagementsCount)) / totalEngagementsCount
+                : BigInt(0);
 
             if(callback) {
                 let callbackText;
 
                 if(foundMatch) {
-                    callbackText = `Congratulations! Your twitter handle ${userHandle} is amongst the most active users in this season.\nYou'll be receiving a reward in our Guerrero Maya ecosystem due to your participation. Please send me your wallet address to claim your rewards.`;
+                    callbackText = `Congratulations! Your twitter handle ${userHandle} is amongst the most active users in this season.\nYou'll be receiving a ${userRewards} $MZCAL reward in our Guerrero Maya ecosystem due to your participation. Please send me your wallet address to claim your rewards.`;
                 } else {
                     callbackText = `Sorry, as of this moment your twitter handle ${userHandle} is not part of the most active users in the Guerrero Maya ecosystem. Stay updated and follow our official accounts as we distribute rewards each season.`;
                 }
 
-                callback({
-                    text: callbackText
-                });
+                const newMemory: Memory = {
+                    userId: _message.agentId,
+                    agentId: _message.agentId,
+                    roomId: _message.roomId,
+                    content: {
+                        text: callbackText,
+                        action: "COOKIE_HANDLE_RELEVANCE_RESPONSE",
+                        source: _message.content?.source,
+                    },
+                };
+                
+                await _runtime.messageManager.createMemory(newMemory);
+
+                callback(newMemory.content);
 
                 return true;
             }
