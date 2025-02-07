@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import info from "@/lib/info.json";
+//import info from "@/lib/info.json";
 import {
     Sidebar,
     SidebarContent,
@@ -16,7 +16,7 @@ import {
 import { apiClient } from "@/lib/api";
 import { NavLink, useLocation } from "react-router";
 import type { UUID } from "@elizaos/core";
-import { Book, Cog, User } from "lucide-react";
+import { /*Book,*/ Cog, User } from "lucide-react";
 import ConnectionStatus from "./connection-status";
 
 export function AppSidebar() {

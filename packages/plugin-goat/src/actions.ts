@@ -38,14 +38,6 @@ export async function getOnChainActions(wallet: WalletClientBase) {
             validate: async () => true,
             examples: [],
         },
-        // transfer MZCAL
-        {
-            name: "SEND_MZCAL",
-            description: "Transfer MZCAL tokens (contract address:0x09d98CA2Af67f6a8CFAde18525702cD266ad7597) to another wallet using erc20 plugin",
-            similes: [],
-            validate: async () => true,
-            examples: [],
-        },
         // claim rewards
         {
             name: "CLAIM_REWARDS",

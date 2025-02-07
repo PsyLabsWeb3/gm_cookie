@@ -12,7 +12,7 @@ import {
 import { apiClient } from "@/lib/api";
 import { NavLink } from "react-router";
 import type { UUID } from "@elizaos/core";
-import { formatAgentName } from "@/lib/utils";
+//import { formatAgentName } from "@/lib/utils";
 
 export default function Home() {
     const query = useQuery({

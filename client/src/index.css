@@ -68,10 +68,14 @@
 
     * {
         @apply border-border;
-        font-family: 'Cinzel Decorative', serif;
     }
 
     body {
         @apply bg-background text-foreground;
+    }
+
+    h2 {
+        @apply border-border;
+        font-family: 'Cinzel Decorative', serif;
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "Kukulcan",
-  "clients": [],
+  "clients": ["twitter"],
   "modelProvider": "grok",
   "settings": {
     "voice": {
