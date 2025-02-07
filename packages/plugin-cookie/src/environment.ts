@@ -5,6 +5,7 @@ export const cookieEnvSchema = z.object({
     COOKIE_API_KEY: z.string().min(1, "Cookie API Key required"),
     COOKIE_API_URL: z.string().min(1, "Cookie API URL required"),
     COOKIE_TWEETS_TOPIC: z.string().min(1, "Cookie tweets topic required"),
+    GUERRERO_MAYA_REWARD_POOL: z.string().min(1, "Reward pool required"),
 });
 
 export type cookieConfig = z.infer<typeof cookieEnvSchema>;
@@ -17,6 +18,7 @@ export async function validateCookieConfig(
             COOKIE_API_KEY: runtime.getSetting("COOKIE_API_KEY"),
             COOKIE_API_URL: runtime.getSetting("COOKIE_API_URL"),
             COOKIE_TWEETS_TOPIC: runtime.getSetting("COOKIE_TWEETS_TOPIC"),
+            GUERRERO_MAYA_REWARD_POOL: runtime.getSetting("GUERRERO_MAYA_REWARD_POOL"),
         };
         return cookieEnvSchema.parse(config);
     } catch (error) {
