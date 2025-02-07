@@ -44,7 +44,7 @@ export const createCookieService = (
             console.error("Cookie API Error: ", error.message);
             throw error;
         }
-    }
+    };
 
     return { getRelevantTweets };
 }

@@ -27,8 +27,8 @@ export const getRelevantTweetsAction: Action = {
     },
     handler: async (
         runtime: IAgentRuntime,
-        message: Memory,
-        state: State,
+        _message: Memory,
+        _state: State,
         _options: { [key: string]: unknown },
         callback: HandlerCallback
     ) => {
