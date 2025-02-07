@@ -25,7 +25,7 @@ export default function Home() {
 
     return (
         <div className="flex flex-col gap-4 h-full p-4">
-            <PageTitle title="Agents" />
+            <PageTitle title="Guerrero Maya" />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {agents?.map((agent: { id: UUID; name: string }) => (
                     <Card key={agent.id}>
@@ -34,9 +34,10 @@ export default function Home() {
                         </CardHeader>
                         <CardContent>
                             <div className="rounded-md bg-muted aspect-square w-full grid place-items-center">
-                                <div className="text-6xl font-bold uppercase">
+                                {/* <div className="text-6xl font-bold uppercase">
                                     {formatAgentName(agent?.name)}
-                                </div>
+                                </div> */}
+                                <img src="/KUKULCAN.png" alt="KUKULCAN-icon" />
                             </div>
                         </CardContent>
                         <CardFooter>

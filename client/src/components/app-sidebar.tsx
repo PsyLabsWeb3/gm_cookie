@@ -37,18 +37,22 @@ export function AppSidebar() {
                         <SidebarMenuButton size="lg" asChild>
                             <NavLink to="/">
                                 <img
-                                    alt="elizaos-icon"
-                                    src="/elizaos-icon.png"
-                                    width="100%"
-                                    height="100%"
-                                    className="size-7"
+                                    alt="gm-icon"
+                                    src="/gmICON.png"
+                                    width="13%"
+                                    height="13%"
+                                    className="size-10"
                                 />
 
                                 <div className="flex flex-col gap-0.5 leading-none">
-                                    <span className="font-semibold">
-                                        ElizaOS
-                                    </span>
-                                    <span className="">v{info?.version}</span>
+                                <img
+                                    alt="gm-letters"
+                                    src="/gmLetters.png"
+                                    width="85%"
+                                    height="50%"
+                                  
+                                />
+                                    {/* <span className="">v{info?.version}</span> */}
                                 </div>
                             </NavLink>
                         </SidebarMenuButton>
@@ -105,9 +109,9 @@ export function AppSidebar() {
                             to="https://elizaos.github.io/eliza/docs/intro/"
                             target="_blank"
                         >
-                            <SidebarMenuButton>
+                            {/* <SidebarMenuButton>
                                 <Book /> Documentation
-                            </SidebarMenuButton>
+                            </SidebarMenuButton> */}
                         </NavLink>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
