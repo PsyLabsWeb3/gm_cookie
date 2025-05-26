@@ -9,6 +9,7 @@ import Chat from "./routes/chat";
 import Overview from "./routes/overview";
 import Home from "./routes/home";
 import useVersion from "./hooks/use-version";
+import Navigation from "./components/nav/Navigation";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -29,6 +30,7 @@ function App() {
                 }}
             >
                 <BrowserRouter>
+                <Navigation />
                     <TooltipProvider delayDuration={0}>
                         <SidebarProvider>
                             <AppSidebar />
