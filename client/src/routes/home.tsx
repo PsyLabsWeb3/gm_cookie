@@ -25,7 +25,7 @@ export default function Home() {
 
     return (
         <div className="flex flex-col gap-4 h-full p-4">
-            <PageTitle title="Guerrero Maya" />
+            <PageTitle title="Kukulcan AI Terminal" />
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {agents?.map((agent: { id: UUID; name: string }) => (
                     <Card key={agent.id}>

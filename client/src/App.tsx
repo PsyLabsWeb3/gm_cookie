@@ -32,24 +32,24 @@ function App() {
                 <BrowserRouter>
                 <Navigation />
                     <TooltipProvider delayDuration={0}>
-                        <SidebarProvider>
-                            <AppSidebar />
-                            <SidebarInset>
-                                <div className="flex flex-1 flex-col gap-4 size-full container">
-                                    <Routes>
-                                        <Route path="/" element={<Home />} />
-                                        <Route
-                                            path="chat/:agentId"
-                                            element={<Chat />}
-                                        />
-                                        <Route
-                                            path="settings/:agentId"
-                                            element={<Overview />}
-                                        />
-                                    </Routes>
-                                </div>
-                            </SidebarInset>
-                        </SidebarProvider>
+                            <SidebarProvider>
+                                {/* <AppSidebar /> */}
+                                <SidebarInset>
+                                    <div className="flex flex-1 flex-col gap-4 size-full container">
+                                        <Routes>
+                                            <Route path="/" element={<Home />} />
+                                            <Route
+                                                path="chat/:agentId"
+                                                element={<Chat />}
+                                            />
+                                            <Route
+                                                path="settings/:agentId"
+                                                element={<Overview />}
+                                            />
+                                        </Routes>
+                                    </div>
+                                </SidebarInset>
+                            </SidebarProvider>
                         <Toaster />
                     </TooltipProvider>
                 </BrowserRouter>
